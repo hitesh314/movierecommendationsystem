@@ -12,7 +12,7 @@ with open('style.css') as f:
 #     st.markdown(f'<script>{f.reaśd()}</script>',unsafe_allow_html=True)
 from PIL import Image
 st.title('Movie Recommender System')
-img=Image.open("Image2.jpeg")
+img=Image.open("Image2.jpg")
 st.image(img)
 def fetch_poster(movie_id):
     url = "https://api.themoviedb.org/3/movie/{}?api_key=b0aa0a1b1d496d238c8917554ee42356&language=en-US".format(

@@ -20,7 +20,6 @@ def decompress_pickle(file):
     return data
 
 
-    return recommended_movie_names, recommended_movie_posters
 data = decompress_pickle('similarity.pbz2')
 movies_dict=pickle.load(open('movie_dict.pkl','rb'))
 movies=pd.DataFrame(movies_dict)
@@ -48,6 +47,7 @@ def recommend(movie):
         recommended_movie_posters.append(fetch_poster(movie_id))
         recommended_movie_names.append(movies.iloc[i[0]].title)
 
+    return recommended_movie_names, recommended_movie_posters
 recommended_movie_names, recommended_movie_posters = recommend(selected_movie)
 col1, col2, col3, col4 = st.columns(4)
 with col1:

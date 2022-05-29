@@ -51,11 +51,11 @@ def recommend(movie):
 recommended_movie_names, recommended_movie_posters = recommend(selected_movie)
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-    st.image(recommended_movie_posters[3])
-    st.text(recommended_movie_names[3])
-with col2:
     st.image(recommended_movie_posters[0])
     st.text(recommended_movie_names[0])
+with col2:
+    st.image(recommended_movie_posters[3])
+    st.text(recommended_movie_names[3])
 with col3:
     st.image(recommended_movie_posters[2])
     st.text(recommended_movie_names[2])

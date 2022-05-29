@@ -14,6 +14,21 @@ from PIL import Image
 st.title('Movie Recommender System')
 img=Image.open("Image2.jpg")
 st.image(img)
+def decompress_pickle(file):
+    data = bz2.BZ2File(file, "rb")
+    data = cPickle.load(data)
+    return data
+
+
+    return recommended_movie_names, recommended_movie_posters
+data = decompress_pickle('similarity.pbz2')
+movies_dict=pickle.load(open('movie_dict.pkl','rb'))
+movies=pd.DataFrame(movies_dict)
+similarity=data
+
+st.write("## Watch your favourite movie    .")
+selected_movie=st.selectbox('Name a Movie',movies['title'].values)
+
 def fetch_poster(movie_id):
     url = "https://api.themoviedb.org/3/movie/{}?api_key=b0aa0a1b1d496d238c8917554ee42356&language=en-US".format(
         movie_id)
@@ -22,10 +37,6 @@ def fetch_poster(movie_id):
     poster_path = data['poster_path']
     full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
     return full_path
-def decompress_pickle(file):
-    data = bz2.BZ2File(file, "rb")
-    data = cPickle.load(data)
-    return data
 def recommend(movie):
     index = movies[movies['title'] == movie].index[0]
     distances = sorted(list(enumerate(similarity[index])), reverse=True, key=lambda x: x[1])
@@ -36,15 +47,6 @@ def recommend(movie):
         movie_id = movies.iloc[i[0]].id
         recommended_movie_posters.append(fetch_poster(movie_id))
         recommended_movie_names.append(movies.iloc[i[0]].title)
-
-    return recommended_movie_names, recommended_movie_posters
-data = decompress_pickle('similarity.pbz2')
-movies_dict=pickle.load(open('movie_dict.pkl','rb'))
-movies=pd.DataFrame(movies_dict)
-similarity=data
-
-st.write("## Watch your favourite movie    .")
-selected_movie=st.selectbox('Name a Movie',movies['title'].values)
 
 recommended_movie_names, recommended_movie_posters = recommend(selected_movie)
 col1, col2, col3, col4 = st.columns(4)

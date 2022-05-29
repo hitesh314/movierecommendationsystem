@@ -51,40 +51,40 @@ def recommend(movie):
 recommended_movie_names, recommended_movie_posters = recommend(selected_movie)
 col1, col2, col3, col4 = st.columns(4)
 with col1:
+    st.image(recommended_movie_posters[3])
+    st.text(recommended_movie_names[3])
+with col2:
     st.image(recommended_movie_posters[0])
     st.text(recommended_movie_names[0])
-with col2:
-    st.image(recommended_movie_posters[1])
-    st.text(recommended_movie_names[1])
 with col3:
     st.image(recommended_movie_posters[2])
     st.text(recommended_movie_names[2])
 with col4:
-    st.image(recommended_movie_posters[3])
-    st.text(recommended_movie_names[3])
+    st.image(recommended_movie_posters[1])
+    st.text(recommended_movie_names[1])
 col5, col6, col7, col8 = st.columns(4)
 with col5:
-    st.image(recommended_movie_posters[4])
-    st.text(recommended_movie_names[4])
-with col6:
-    st.image(recommended_movie_posters[5])
-    st.text(recommended_movie_names[5])
-with col7:
     st.image(recommended_movie_posters[6])
     st.text(recommended_movie_names[6])
+with col6:
+    st.image(recommended_movie_posters[4])
+    st.text(recommended_movie_names[4])
+with col7:
+    st.image(recommended_movie_posters[5])
+    st.text(recommended_movie_names[5])
 with col8:
     st.image(recommended_movie_posters[7])
     st.text(recommended_movie_names[7])
 col9, col10, col11, col12 = st.columns(4)
 with col9:
-    st.image(recommended_movie_posters[8])
-    st.text(recommended_movie_names[8])
+    st.image(recommended_movie_posters[10])
+    st.text(recommended_movie_names[10])
 with col10:
     st.image(recommended_movie_posters[9])
     st.text(recommended_movie_names[9])
 with col11:
-    st.image(recommended_movie_posters[10])
-    st.text(recommended_movie_names[10])
+    st.image(recommended_movie_posters[8])
+    st.text(recommended_movie_names[8])
 with col12:
     st.image(recommended_movie_posters[11])
     st.text(recommended_movie_names[11])
